@@ -1,4 +1,5 @@
 import "./App.css";
+import { Movies } from "./components/Movies";
 import responseMovies from "./mocks/with-results.json";
 // import witouthResults from "./mocks/no-results.json";
 
@@ -7,7 +8,12 @@ import responseMovies from "./mocks/with-results.json";
 
 function App() {
   const movies = responseMovies.Search;
-  const hasMovies = movies?.length > 0;
+  const mappedMovies = movies?.map((movie) => ({
+    id: movie.imdbID,
+    title: movie.Title,
+    year: movie.Year,
+    poster: movie.Poster,
+  }));
   return (
     <div className="page">
       <header>
@@ -23,19 +29,7 @@ function App() {
         </form>
       </header>
       <main>
-        {hasMovies ? (
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.imdbID}>
-                <h3>{movie.Title}</h3>
-                <p>{movie.Year}</p>
-                <img src={movie.Poster} alt={movie.Title} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No se encontraron películas para esta búsqueda</p>
-        )}
+        <Movies movies={mappedMovies} />
       </main>
     </div>
   );
