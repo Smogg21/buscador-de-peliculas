@@ -1,4 +1,5 @@
 import "./App.css";
+import { useRef } from "react";
 import { Movies } from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
 
@@ -7,7 +8,14 @@ import { useMovies } from "./hooks/useMovies";
 
 
 function App() {
-  const {movies: mappedMovies} = useMovies()
+  const {movies} = useMovies()
+  const inputRef = useRef() 
+
+  const handleClick = () =>{
+    const inputEl = inputRef.current
+    const value = inputEl.value
+
+  }
 
   return (
     <div className="page">
@@ -15,16 +23,17 @@ function App() {
         <h1>Buscador de películas</h1>
         <form action="" className="form">
           <input
+            ref={inputRef}
             type="text"
             name=""
             id=""
             placeholder="Avengers, Star Wars, The matrix ..."
           />
-          <button type="submit">Buscar</button>
+          <button type="submit" onClick={handleClick}>Buscar</button>
         </form>
       </header>
       <main>
-        <Movies movies={mappedMovies} />
+        <Movies movies={movies} />
       </main>
     </div>
   );
