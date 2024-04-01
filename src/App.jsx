@@ -11,17 +11,18 @@ function App() {
   const {movies} = useMovies()
   const inputRef = useRef() 
 
-  const handleClick = () =>{
+  const handleSubmit = (event) =>{
+    event.preventDefault()
     const inputEl = inputRef.current
     const value = inputEl.value
-
+    console.log(value)
   }
 
   return (
     <div className="page">
       <header>
         <h1>Buscador de películas</h1>
-        <form action="" className="form">
+        <form onSubmit={handleSubmit} className="form">
           <input
             ref={inputRef}
             type="text"
@@ -29,7 +30,7 @@ function App() {
             id=""
             placeholder="Avengers, Star Wars, The matrix ..."
           />
-          <button type="submit" onClick={handleClick}>Buscar</button>
+          <button type="submit">Buscar</button>
         </form>
       </header>
       <main>
