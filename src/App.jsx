@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import "./App.css";
 import { Movies } from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
+import debounce from "just-debounce-it";
 
 //https://www.omdbapi.com/?apikey=7c5962cc&s=Avengers
 //API_KEY = 7c5962cc
@@ -39,6 +40,14 @@ function App() {
   const { search, updateSearch, error } = useSearch();
   const { movies, loading, getMovies } = useMovies({ search, sort });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedGetMovies = useCallback(
+    debounce(search => {
+      getMovies({ search })
+    }, 300)
+    ,[getMovies]
+  )
+
   const handleSubmit = (event) => {
     event.preventDefault();
     getMovies(search);
@@ -51,7 +60,7 @@ function App() {
   const handleChange = (event) => {
     const newSearch = event.target.value
     updateSearch(newSearch);
-    getMovies({ search: newSearch })
+    debouncedGetMovies(newSearch)
   };
 
   return (
