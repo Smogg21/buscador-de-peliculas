@@ -80,7 +80,8 @@ function App() {
             id=""
             placeholder="Avengers, Star Wars, The matrix ..."
           />
-          <input type="checkbox" onChange={handleSort} checked={sort} />
+          <label htmlFor="sort">Sort</label>
+          <input type="checkbox" onChange={handleSort} checked={sort} name="sort"/>
           <button type="submit">Buscar</button>
         </form>
         {error && <p style={{ color: "red" }}>{error}</p>}

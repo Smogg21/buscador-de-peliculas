@@ -1,4 +1,4 @@
-.page{
+.page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@ form {
   justify-content: center;
 }
 
-.movies{
+.movies {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -26,10 +26,11 @@ form {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 32px;
 }
-.movie{
+.movie {
   text-align: center;
 }
-.movie h3, .movie p {
+.movie h3,
+.movie p {
   margin: 0;
 }
 .movie img {
