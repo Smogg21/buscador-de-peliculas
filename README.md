@@ -4,6 +4,8 @@ Este es un buscador de películas creado utilizando react por motivos de aprendi
 
 ![Diseño](images/buscadorPeliculas.png)
 
+Contiene un botón de Sort para organizar los resultados en orden alfabético.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
