@@ -1,6 +1,8 @@
 # React + Vite
 Este es un buscador de películas creado utilizando react por motivos de aprendizaje/estudio, utilizando la API de omdbapi.com
+
 La página está publicada y es funcional en el siguiente link: 
+
 [Link de GitHub pages](https://smogg21.github.io/buscador-de-peliculas/)
 
 ![Diseño](images/buscadorPeliculas.png)
