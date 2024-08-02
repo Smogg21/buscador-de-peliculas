@@ -1,6 +1,8 @@
 # React + Vite
 Este es un buscador de películas creado utilizando react por motivos de aprendizaje/estudio, utilizando la API de omdbapi.com
-[Diseño](images/buscadorPeliculas.png)
+
+
+![Diseño](images/buscadorPeliculas.png)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
